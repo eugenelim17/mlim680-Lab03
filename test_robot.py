@@ -98,15 +98,25 @@ def test_back_track_after_making_a_turn(robot):
 
 def test_back_track_after_making_multiple_move(robot):
     robot.move()
+    robot.move()
+    robot.move()
+    robot.back_track()
+    robot.back_track()
+    robot.back_track()
     state = robot.state()
     assert state['direction'] == Direction.NORTH
-    assert state['row'] == 9
+    assert state['row'] == 10
     assert state['col'] == 1
 
 def test_back_track_after_making_multiple_turn(robot):
     robot.turn()
+    robot.turn()
+    robot.turn()
+    robot.back_track()
+    robot.back_track()
+    robot.back_track()
     state = robot.state()
-    assert state['direction'] == Direction.EAST
+    assert state['direction'] == Direction.NORTH
     assert state['row'] == 10
     assert state['col'] == 1
 
